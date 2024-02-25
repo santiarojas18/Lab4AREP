@@ -39,14 +39,13 @@ public class HttpServer
     //as default will search at public
     public void runServer(String[] args) throws IOException, URISyntaxException, ClassNotFoundException {
         cache = new ConcurrentHashMap<>();
-        Class helloController = Class.forName(args[0]);
-        if (helloController.isAnnotationPresent(Component.class)) {
-            lookingForAnnotation(helloController);
-        }
 
         ArrayList<Class<?>> classesToAddMethods = loadingClasses("edu", Component.class);
         System.out.println(classesToAddMethods);
 
+        for(Class<?> classToFindMethods : classesToAddMethods) {
+            lookingForAnnotation(classToFindMethods);
+        }
 
         ServerSocket serverSocket = null;
         try {
@@ -149,8 +148,6 @@ public class HttpServer
             while (resources.hasMoreElements()) {
                 URL resource = resources.nextElement();
                 File directory = new File(resource.getFile());
-                System.out.println("helloooooo");
-                System.out.println(directory.getName());
                 foundClasses.addAll(findingClassInDirectory(rootPacket, directory, annotation));
             }
         } catch (IOException e) {
@@ -185,7 +182,7 @@ public class HttpServer
         return foundClasses;
     }
 
-    private void lookingForAnnotation (Class helloController) {
+    private void lookingForAnnotation (Class<?> helloController) {
         for (Method method : helloController.getMethods()) {
             if(method.isAnnotationPresent(GetMapping.class)) {
                 String ruta = method.getAnnotation(GetMapping.class).value();

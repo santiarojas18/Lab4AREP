@@ -20,19 +20,19 @@ function formatJSON(jsonObj) {
                htmlOutput += "</ul>";
                return htmlOutput;
            }
+
             function loadGetMsg() {
-                let nameVar = document.getElementById("name").value;
-                const xhttp = new XMLHttpRequest();
-                xhttp.onload = function() {
-                    try {
-                         response = JSON.parse(this.responseText);
-                         const formattedOutput = formatJSON(response);
-                         document.getElementById("getrespmsg").innerHTML = "<pre>" + formattedOutput + "</pre>";
-                     } catch (error) {
-                         document.getElementById("getrespmsg").innerHTML =
-                         this.responseText;
-                     }
-                };
-                xhttp.open("GET", "/movies/"+nameVar);
-                xhttp.send();
-            }
+                            const xhttp = new XMLHttpRequest();
+                            xhttp.onload = function() {
+                                try {
+                                     response = JSON.parse(this.responseText);
+                                     const formattedOutput = formatJSON(response);
+                                     document.getElementById("getrespmsg").innerHTML = "<pre>" + formattedOutput + "</pre>";
+                                 } catch (error) {
+                                     document.getElementById("getrespmsg").innerHTML =
+                                     this.responseText;
+                                 }
+                            };
+                            xhttp.open("GET", "/students");
+                            xhttp.send();
+                        }
