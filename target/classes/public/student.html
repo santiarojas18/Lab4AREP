@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students APP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Students</h1>
+<form>
+    <label for="name">Add Student:</label><br>
+    <label>Student's ID:</label><br>
+    <input type="text" id="id" name="studentId" value=""><br><br>
+    <label>Student's Name:</label><br>
+    <input type="text" id="name" name="studentName" value=""><br><br>
+    <input type="button" value="Add" onclick="loadPostMsg()">
+</form>
+<form>
+    <label>To Consult all the students:</label><br>
+    <input type="button" value="Consult All" onclick="loadGetMsg()">
+</form>
+<div id="getrespmsg"></div>
+
+<script src="scriptStudents.js"></script>
+
+</body>
+</html>
