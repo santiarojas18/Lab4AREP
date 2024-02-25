@@ -86,7 +86,7 @@ public class AppTest
         });
 
         String USER_AGENT = "Mozilla/5.0";
-        String GET_URL = "http://localhost:35000/index.html";
+        String GET_URL = "http://localhost:35000/students";
         String finalUrl = GET_URL;
         URL obj = new URL(finalUrl);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();

@@ -41,7 +41,7 @@ public class HttpServer
         cache = new ConcurrentHashMap<>();
 
         ArrayList<Class<?>> classesToAddMethods = loadingClasses("edu", Component.class);
-        System.out.println(classesToAddMethods);
+        System.out.println("Clases cargadas: " + classesToAddMethods);
 
         for(Class<?> classToFindMethods : classesToAddMethods) {
             lookingForAnnotation(classToFindMethods);
